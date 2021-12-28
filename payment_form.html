@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" name="details">
+        <h1>Lets talk about you</h1>
+        <p>Name &#128515; <input type="text" name="name" id="name" required></p>
+        <p>Email <input type="email" name="email" id="email" required></p>
+        <fieldset><legend>Gender</legend>
+            <p><input type="radio" name="gender" id="male" required>Male</p>
+            <p><input type="radio" name="gender" id="female" required>Female</p>
+            <p><input type="radio" name="gender" id="other" required>Other</p>
+        </fieldset>
+        <p>What's Your Birthday Date  &#127874; ? &nbsp; <input type="date" name=" birthday date" id="date" required></p>
+        <p>Whats your plan on your Birthday ?</p><br>
+        <textarea name="birthday_plans" id="plans" cols="60" rows="10" required></textarea>
+        <p>Location <select name="location" id="location" required>        </p>
+
+            <option value="">City</option>
+            <option value="meerut">Meerut</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Pune">Pune</option>
+            <option value="New York">New York</option>
+            <option value="other">Other</option>
+        </select>
+        <p>Whats your views about mulltiverse</p>
+        <textarea name="views_on_multiverse" id="views" cols="50" rows="10" required></textarea>
+        <p> Whats your favourite music ? </p>
+        <input type="file" name="music" id="music required">
+        <p>Whats your goals in your life ? </p>
+        <textarea name="goals" id="goals" cols="30" rows="10" required></textarea>
+        <p>Father's Name <input type="text" name="fathername" id="fathername" required></p>
+        <p>whats do yo desire for ?</p>
+        <textarea name="tell" id="tell" cols="30" rows="10" required></textarea><br><br>
+        <input type="submit" value="submit"> <input type="reset" value="reset">
+
+        
+        
+        
+    
+
+         </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz6Hg-4BajY0YN2yPo6wLYQ07VewFF3ESV_Lq-Xj7LW-urnQxyI24tMz7jLMVanRfDQ/exec'
+        const form = document.forms['details']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
